@@ -27,11 +27,10 @@
   border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.loading-view {
+  padding-top: 25vh;
+
+  img {
+    height: 300px;
   }
 }
