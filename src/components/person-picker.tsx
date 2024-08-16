@@ -30,12 +30,15 @@ const PersonPicker = ({
   ) || { url: "" };
 
   const fetchCharacter = () => {
-    if (currentCharacter.url) {
+    if (currentCharacter?.url) {
       fetch(currentCharacter.url)
         .then((res) => res.json())
         .then((json) => setCharacterData(json))
         .catch((err) => setError(err));
-    }
+    } 
+    // else {
+    //   setError('error')
+    // }
   };
 
   const handleChange = (event: SelectChangeEvent) => {

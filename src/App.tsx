@@ -5,19 +5,20 @@ import Header from "./components/header";
 import FilmList, { CharacterFilms } from "./components/film-list";
 import CharacterBio from "./components/character-bio";
 import characters from "./util/characters.json";
-import loadingGif from "../src/img/bb8.gif";
+import Loading from "./views/loading";
+import Idle from "./views/idle";
+import Error from "./views/error";
 
 const { characters: characterChoices } = characters;
 
 const App: React.FC = () => {
-  const [error, setError] = useState(false);
-  const [isFetching, setIsFetching] = useState(true);
+  const [loadingState, setLoadingState] = useState("idle"); // idle | loading | success | error
   const [listMode, setListMode] = useState(false);
-  const [dropdownValue, setDropdownValue] = useState(characterChoices[0].name);
+  const [dropdownValue, setDropdownValue] = useState("");
   const [characterData, setCharacterData] = useState({
     name: "",
     birth_year: "",
-    films: [""],
+    films: [''],
   });
   const [characterFilms, setCharacterFilms] = useState<CharacterFilms[]>([
     {
@@ -41,18 +42,20 @@ const App: React.FC = () => {
   let filmArr: CharacterFilms[] = [];
 
   useEffect(() => {
-    setIsFetching(true);
-    if (characterData.films.length > 0) {
-      characterData.films.map((film) => {
+    console.log('characterData.films', characterData.films.length)
+    if (characterData.films[0] !== '') {
+      setLoadingState('loading');
+      characterData?.films.map((film) => {
         fetch(film)
           .then((res) => res.json())
           .then((data) => {
             filmArr = [...filmArr, data];
             setCharacterFilms(filmArr);
-            setIsFetching(false);
-          });
+            setLoadingState("success");
+          })
+          .catch((err) => setLoadingState('error'));
       });
-    }
+    } 
   }, [characterData]);
 
   const description = `${listMode ? "List" : "Grid"} of Films, etc.`;
@@ -66,14 +69,13 @@ const App: React.FC = () => {
         characterData={characterData}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
-        setError={setError}
+        setError={() => setLoadingState('error')}
       />
       <body>
-        {isFetching ? (
-          <div className="loading-view">
-            <img src={loadingGif} alt="loading icon" />
-          </div>
-        ) : (
+        {loadingState === "idle" && <Idle />}
+        {loadingState === "loading" && <Loading />}
+        {loadingState === "error" && <Error />}
+        {loadingState === "success" && (
           <>
             <div>{description}</div>
             {characterData && (

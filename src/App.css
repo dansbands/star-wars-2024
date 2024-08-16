@@ -10,7 +10,7 @@
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
-  box-shadow: 0 0 10px 7px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px 7px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -27,8 +27,16 @@
   border: none;
 }
 
+.error-view,
+.idle-view,
 .loading-view {
+  text-align: center;
   padding-top: 25vh;
+
+  p {
+    font-size: 20px;
+    font-style: italic;
+  }
 
   img {
     height: 300px;
