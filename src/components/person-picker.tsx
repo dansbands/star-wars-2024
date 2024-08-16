@@ -1,4 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 export type PersonPickerProps = {
   characterChoices?: { name: string; url: string }[];
@@ -27,9 +29,6 @@ const PersonPicker = ({
     (choice) => choice.name === dropdownValue
   ) || { url: "" };
 
-  // console.log("characterData", characterData);
-  // console.log("currentCharacter", currentCharacter);
-
   const fetchCharacter = () => {
     if (currentCharacter.url) {
       fetch(currentCharacter.url)
@@ -39,7 +38,7 @@ const PersonPicker = ({
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: SelectChangeEvent) => {
     setDropdownValue(event.target.value);
     fetchCharacter();
   };
@@ -50,15 +49,23 @@ const PersonPicker = ({
 
   return (
     <>
-      <select value={dropdownValue} onChange={handleChange}>
+      <Select
+        value={dropdownValue}
+        onChange={handleChange}
+        sx={{
+          width: 400,
+          height: 40,
+          backgroundColor: "white",
+        }}
+      >
         {characterChoices?.map((char) => {
           return (
-            <option key={char.url} value={char.name}>
+            <MenuItem key={char.url} value={char.name}>
               {char.name}
-            </option>
+            </MenuItem>
           );
         })}
-      </select>
+      </Select>
     </>
   );
 };
