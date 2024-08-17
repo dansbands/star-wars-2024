@@ -72,12 +72,14 @@ export default function Modal({ currentFilm, setCurrentFilm }: Props) {
           <Typography variant={"body2"} gutterBottom>
             {currentFilm.opening_crawl}
           </Typography>{" "}
-          <Typography variant={"body1"} gutterBottom>
-            Director: {currentFilm.director}
-          </Typography>
-          <Typography variant={"body1"} gutterBottom>
-            Producer: {currentFilm.producer}
-          </Typography>
+          <div className="modal-credits">
+            <Typography variant={"body1"} gutterBottom>
+              Director: {currentFilm.director}
+            </Typography>
+            <Typography variant={"body1"} gutterBottom>
+              Producer: {currentFilm.producer}
+            </Typography>
+          </div>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>

@@ -104,6 +104,10 @@
   height: 370px;
 }
 
+.table-image-card {
+  height: 75px;
+}
+
 .image-row {
   height: 100px;
   position: absolute;
@@ -128,4 +132,12 @@
     font-size: 16px;
     color: #2c282c;
   }
+}
+
+.modal-credits {
+  margin-top: 20px;
+}
+
+.film-row {
+  cursor: pointer;
 }

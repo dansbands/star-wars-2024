@@ -20,7 +20,7 @@ const Films = ({ listMode, characterData, characterFilms }: Props) => {
     <div className="film-view">
       <div>{description}</div>
       {listMode ? (
-        <FilmList films={characterFilms} />
+        <FilmList setCurrentFilm={setCurrentFilm} films={characterFilms} />
       ) : (
         <FilmGrid setCurrentFilm={setCurrentFilm} films={characterFilms} />
       )}

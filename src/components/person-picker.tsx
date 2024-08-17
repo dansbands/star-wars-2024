@@ -57,6 +57,8 @@ const PersonPicker = ({
       <Select
         value={dropdownValue}
         onChange={handleChange}
+        displayEmpty={true}
+        renderValue={() => dropdownValue || "Choose a character..."}
         sx={{
           width: 400,
           height: 40,

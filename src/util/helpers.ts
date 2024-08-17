@@ -16,6 +16,23 @@ export const posters = [
   episodeSeven,
 ];
 
+export const emptyFilm = {
+  title: "",
+  episode_id: 0,
+  opening_crawl: "",
+  director: "",
+  producer: "",
+  release_date: "",
+  characters: [],
+  planets: [],
+  starships: [],
+  vehicles: [],
+  species: [],
+  created: "",
+  edited: "",
+  url: "",
+};
+
 export const numerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 
 export const formatDate = (date: string) => {
@@ -25,21 +42,9 @@ export const formatDate = (date: string) => {
     month: "long",
     day: "numeric",
   });
-}
+};
 
-export const emptyFilm = {
-    title: "",
-    episode_id: 0,
-    opening_crawl: "",
-    director: "",
-    producer: "",
-    release_date: "",
-    characters: [],
-    planets: [],
-    starships: [],
-    vehicles: [],
-    species: [],
-    created: "",
-    edited: "",
-    url: "",
-  }
+export const formatTitle = (title: string, id: number): string => {
+  const episode = `Episode ${numerals[id - 1]}`;
+  return `${episode}: ${title}`;
+};

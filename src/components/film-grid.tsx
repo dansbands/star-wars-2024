@@ -3,11 +3,11 @@ import { CharacterFilms } from "./film-list";
 import { formatDate, numerals, posters } from "../util/helpers";
 
 type Props = {
-  setCurrentFilm: Dispatch<SetStateAction<CharacterFilms>>;
   films: CharacterFilms[];
+  setCurrentFilm: Dispatch<SetStateAction<CharacterFilms>>;
 };
 
-const FilmGrid = ({ setCurrentFilm, films }: Props) => {
+const FilmGrid = ({ films, setCurrentFilm }: Props) => {
   return (
     <>
       <div className="card-row">

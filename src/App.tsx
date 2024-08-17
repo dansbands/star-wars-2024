@@ -75,7 +75,7 @@ const App: React.FC = () => {
         setDropdownValue={setDropdownValue}
         setError={() => setLoadingState("error")}
       />
-      <body>
+      <main>
         {loadingState === "idle" && <Idle />}
         {loadingState === "loading" && <Loading />}
         {loadingState === "error" && <Error />}
@@ -86,7 +86,7 @@ const App: React.FC = () => {
             characterFilms={characterFilms}
           />
         )}
-      </body>
+      </main>
     </div>
   );
 };
