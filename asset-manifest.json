@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/star-wars-2024/static/css/main.46dae88a.css",
-    "main.js": "/star-wars-2024/static/js/main.51c7c3f2.js",
+    "main.css": "/star-wars-2024/static/css/main.90b5cf13.css",
+    "main.js": "/star-wars-2024/static/js/main.caacca3b.js",
     "static/js/453.6aedcae7.chunk.js": "/star-wars-2024/static/js/453.6aedcae7.chunk.js",
     "static/media/bb8.gif": "/star-wars-2024/static/media/bb8.28f57b3625e89a164055.gif",
     "static/media/5.jpg": "/star-wars-2024/static/media/5.1a5fcce32de1677853bd.jpg",
@@ -11,15 +11,16 @@
     "static/media/vader.png": "/star-wars-2024/static/media/vader.317ace1d5be44bde8ee8.png",
     "static/media/4.jpg": "/star-wars-2024/static/media/4.ab35f0abfbf53d0cce77.jpg",
     "static/media/logo.jpg": "/star-wars-2024/static/media/logo.ccacdb6e4f74abc2d0bb.jpg",
+    "static/media/rebels.png": "/star-wars-2024/static/media/rebels.b96400e067c7d455e2d6.png",
     "static/media/7.jpg": "/star-wars-2024/static/media/7.7b0367c5ce8f85918d77.jpg",
     "static/media/6.jpg": "/star-wars-2024/static/media/6.c73801cc3237ab8a4239.jpg",
     "index.html": "/star-wars-2024/index.html",
-    "main.46dae88a.css.map": "/star-wars-2024/static/css/main.46dae88a.css.map",
-    "main.51c7c3f2.js.map": "/star-wars-2024/static/js/main.51c7c3f2.js.map",
+    "main.90b5cf13.css.map": "/star-wars-2024/static/css/main.90b5cf13.css.map",
+    "main.caacca3b.js.map": "/star-wars-2024/static/js/main.caacca3b.js.map",
     "453.6aedcae7.chunk.js.map": "/star-wars-2024/static/js/453.6aedcae7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46dae88a.css",
-    "static/js/main.51c7c3f2.js"
+    "static/css/main.90b5cf13.css",
+    "static/js/main.caacca3b.js"
   ]
 }
