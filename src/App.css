@@ -22,9 +22,13 @@
 }
 
 .mode-button {
-  color: white;
+  color: rgb(128, 119, 119);
   background: black;
   border: none;
+}
+
+.active-button {
+  color: white;
 }
 
 .error-view,

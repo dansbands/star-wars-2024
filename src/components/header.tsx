@@ -1,11 +1,12 @@
 import React from "react";
 import PersonPicker, { PersonPickerProps } from "./person-picker";
 import ModeControls, { ModeControlProps } from "./mode-controls";
-import logo from '../../src/img/logo.jpg'
+import logo from "../../src/img/logo.jpg";
 
 export type HeaderProps = ModeControlProps & PersonPickerProps;
 
 const Header = ({
+  listMode,
   toggleList,
   characterChoices,
   dropdownValue,
@@ -25,7 +26,7 @@ const Header = ({
         setDropdownValue={setDropdownValue}
         setError={setError}
       />
-      <ModeControls toggleList={toggleList} />
+      <ModeControls listMode={listMode} toggleList={toggleList} />
     </header>
   );
 };

@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [characterData, setCharacterData] = useState({
     name: "",
     birth_year: "",
-    films: [''],
+    films: [""],
   });
   const [characterFilms, setCharacterFilms] = useState<CharacterFilms[]>([
     {
@@ -42,9 +42,9 @@ const App: React.FC = () => {
   let filmArr: CharacterFilms[] = [];
 
   useEffect(() => {
-    console.log('characterData.films', characterData.films.length)
-    if (characterData.films[0] !== '') {
-      setLoadingState('loading');
+    console.log("characterData.films", characterData.films.length);
+    if (characterData.films[0] !== "") {
+      setLoadingState("loading");
       characterData?.films.map((film) => {
         fetch(film)
           .then((res) => res.json())
@@ -53,9 +53,9 @@ const App: React.FC = () => {
             setCharacterFilms(filmArr);
             setLoadingState("success");
           })
-          .catch((err) => setLoadingState('error'));
+          .catch((err) => setLoadingState("error"));
       });
-    } 
+    }
   }, [characterData]);
 
   const description = `${listMode ? "List" : "Grid"} of Films, etc.`;
@@ -63,13 +63,14 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header
+        listMode={listMode}
         toggleList={setListMode}
         characterChoices={characterChoices}
         dropdownValue={dropdownValue}
         characterData={characterData}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
-        setError={() => setLoadingState('error')}
+        setError={() => setLoadingState("error")}
       />
       <body>
         {loadingState === "idle" && <Idle />}
