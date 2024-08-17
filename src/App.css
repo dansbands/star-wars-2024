@@ -25,6 +25,13 @@
   color: rgb(128, 119, 119);
   background: black;
   border: none;
+
+  &:hover {
+    color: whitesmoke;
+    & svg {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .active-button {
@@ -48,7 +55,7 @@
 
   a {
     color: unset;
-    text-decoration: none;;
+    text-decoration: none;
   }
 }
 
@@ -57,24 +64,38 @@
 }
 
 .card-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .movie-card {
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
   border: 1px solid lightgrey;
-  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
-  min-width: 350px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  width: 80vw;
   transition: 0.1s;
   flex: 0 0 25%;
+
+  @media (min-width: 768px) {
+    margin: 20px;
+    width: unset;
+  }
 }
 
 .movie-card:hover {
-  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
   margin-top: 15px;
   cursor: pointer;
   transition: 0.2s;
@@ -90,7 +111,7 @@
 
 .movie-row:hover {
   cursor: pointer;
-  background: rgba(220,220,220,0.3);
+  background: rgba(220, 220, 220, 0.3);
   transition: 0.2s;
 }
 
@@ -101,7 +122,15 @@
 }
 
 .image-card {
-  height: 370px;
+  height: 300px;
+
+  @media (min-width: 768px) {
+    height: 350px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 400px;
+  }
 }
 
 .table-image-card {
@@ -140,4 +169,12 @@
 
 .film-row {
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgb(251, 249, 249);
+    & .table-image-card {
+      transform: scale(1.1);
+    }
+  }
 }
