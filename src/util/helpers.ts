@@ -26,3 +26,20 @@ export const formatDate = (date: string) => {
     day: "numeric",
   });
 }
+
+export const emptyFilm = {
+    title: "",
+    episode_id: 0,
+    opening_crawl: "",
+    director: "",
+    producer: "",
+    release_date: "",
+    characters: [],
+    planets: [],
+    starships: [],
+    vehicles: [],
+    species: [],
+    created: "",
+    edited: "",
+    url: "",
+  }

@@ -1,13 +1,18 @@
-import React from "react";
-import { FilmListProps } from "./film-list";
+import { Dispatch, SetStateAction } from "react";
+import { CharacterFilms } from "./film-list";
 import { formatDate, numerals, posters } from "../util/helpers";
 
-const FilmGrid = ({ films }: FilmListProps) => (
+type Props = {
+  setCurrentFilm: Dispatch<SetStateAction<CharacterFilms>>;
+  films: CharacterFilms[];
+};
+
+const FilmGrid = ({ setCurrentFilm, films }: Props) => (
   <>
     <div className="card-row">
       {films.map((film) => {
         return (
-          <div className="movie-card">
+          <div className="movie-card" onClick={() => setCurrentFilm(film)}>
             <img
               src={posters[film.episode_id - 1]}
               alt="poster"

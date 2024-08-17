@@ -62,7 +62,7 @@ const App: React.FC = () => {
           .catch((err) => setLoadingState("error"));
       });
     }
-  }, [characterData]);
+  }, [characterData, dropdownValue]);
 
   return (
     <div className="App">

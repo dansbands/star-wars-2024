@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import FilmList, { CharacterFilms } from "../components/film-list";
 import { CharacterData } from "../App";
 import FilmGrid from "../components/film-grid";
+import Modal from "../components/modal";
+import { emptyFilm } from "../util/helpers";
 
 type Props = {
   listMode: boolean;
@@ -10,6 +12,8 @@ type Props = {
 };
 
 const Films = ({ listMode, characterData, characterFilms }: Props) => {
+  const [currentFilm, setCurrentFilm] = useState<CharacterFilms>(emptyFilm);
+
   const description = `Films that ${characterData.name} appears in:`;
 
   return (
@@ -18,8 +22,9 @@ const Films = ({ listMode, characterData, characterFilms }: Props) => {
       {listMode ? (
         <FilmList films={characterFilms} />
       ) : (
-        <FilmGrid films={characterFilms} />
+        <FilmGrid setCurrentFilm={setCurrentFilm} films={characterFilms} />
       )}
+      <Modal currentFilm={currentFilm} setCurrentFilm={setCurrentFilm} />
     </div>
   );
 };
