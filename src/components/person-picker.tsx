@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { InputLabel } from "@mui/material";
 
 export type PersonPickerProps = {
   characterChoices?: { name: string; url: string }[];
@@ -53,15 +54,17 @@ const PersonPicker = ({
   }, [dropdownValue]);
 
   return (
-    <>
+    <div className="select-container">
+      <InputLabel className="hidden" id="label">Age</InputLabel>
       <Select
+        className="person-picker"
+        label="label"
+        id="select"
         value={dropdownValue}
         onChange={handleChange}
         displayEmpty={true}
         renderValue={() => dropdownValue || "Choose a character..."}
         sx={{
-          width: 400,
-          height: 40,
           backgroundColor: "white",
         }}
       >
@@ -73,7 +76,7 @@ const PersonPicker = ({
           );
         })}
       </Select>
-    </>
+    </div>
   );
 };
 

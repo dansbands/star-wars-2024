@@ -5,20 +5,36 @@
 .App-header {
   background-color: #000000;
   min-height: 150px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
-  justify-content: space-around;
+  justify-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
   box-shadow: 0 0 10px 7px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
-  width: 150px;
+  width: 100px;
+
+  @media (min-width: 768px) {
+    width: 150px;
+  }
 }
 
-.mode-controls {
-  width: 200px;
+.select-container {
+  width: 90%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.person-picker {
+  width: 100%;
+  height: 40px;
+  background-color: "white";
+  margin-bottom: 20px;
 }
 
 .mode-button {
@@ -49,13 +65,30 @@
     font-style: italic;
   }
 
-  img {
-    height: 300px;
-  }
-
   a {
     color: unset;
     text-decoration: none;
+  }
+}
+
+.error-view,
+.loading-view {
+  img {
+    height: 300px;
+  }
+}
+
+.idle-image {
+  opacity: 0.05;
+  position: absolute;
+  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  width: 70vw;
+  transform: translate(-50%, -50%); 
+
+  @media (min-width: 768px) {
+    margin-top: 100px;
   }
 }
 
