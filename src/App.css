@@ -45,4 +45,80 @@
   img {
     height: 300px;
   }
+
+  a {
+    color: unset;
+    text-decoration: none;;
+  }
+}
+
+.film-view {
+  padding-top: 50px;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.movie-card {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid lightgrey;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+  min-width: 350px;
+  transition: 0.1s;
+  flex: 0 0 25%;
+}
+
+.movie-card:hover {
+  box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.movie-row {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  height: 120px;
+  padding: 10px;
+}
+
+.movie-row:hover {
+  cursor: pointer;
+  background: rgba(220,220,220,0.3);
+  transition: 0.2s;
+}
+
+.movie-row-content {
+  display: flex;
+  align-content: center;
+  text-align: center;
+}
+
+.image-card {
+  height: 370px;
+}
+
+.image-row {
+  height: 100px;
+  position: absolute;
+  left: 100px;
+}
+
+.movies {
+  margin: 0 8%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 80vh;
+}
+
+.movie-caption {
+  border-top: 1px solid lightgrey;
+  margin-top: 20px;
+  padding-top: 10px;
 }

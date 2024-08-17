@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 import Header from "./components/header";
-import FilmList, { CharacterFilms } from "./components/film-list";
-import CharacterBio from "./components/character-bio";
+import { CharacterFilms } from "./components/film-list";
 import characters from "./util/characters.json";
 import Loading from "./views/loading";
 import Idle from "./views/idle";
 import Error from "./views/error";
+import Films from "./views/films";
 
 const { characters: characterChoices } = characters;
+
+export type CharacterData = {
+  name: string;
+  birth_year: string;
+  films: string[];
+};
 
 const App: React.FC = () => {
   const [loadingState, setLoadingState] = useState("idle"); // idle | loading | success | error
   const [listMode, setListMode] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
-  const [characterData, setCharacterData] = useState({
+  const [characterData, setCharacterData] = useState<CharacterData>({
     name: "",
     birth_year: "",
     films: [""],
@@ -58,8 +64,6 @@ const App: React.FC = () => {
     }
   }, [characterData]);
 
-  const description = `${listMode ? "List" : "Grid"} of Films, etc.`;
-
   return (
     <div className="App">
       <Header
@@ -77,18 +81,11 @@ const App: React.FC = () => {
         {loadingState === "loading" && <Loading />}
         {loadingState === "error" && <Error />}
         {loadingState === "success" && (
-          <>
-            <div>{description}</div>
-            {characterData && (
-              <>
-                <CharacterBio
-                  name={characterData.name}
-                  birth_year={characterData.birth_year}
-                />
-              </>
-            )}
-            <FilmList films={characterFilms} />
-          </>
+          <Films
+            listMode={listMode}
+            characterData={characterData}
+            characterFilms={characterFilms}
+          />
         )}
       </body>
     </div>

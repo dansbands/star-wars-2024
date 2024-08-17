@@ -15,7 +15,7 @@ export interface CharacterFilms {
   url: string;
 }
 
-type FilmListProps = {
+export type FilmListProps = {
   films: CharacterFilms[];
 };
 
@@ -25,7 +25,6 @@ const FilmList = ({ films }: FilmListProps) => {
       <div>Films:</div>
       <ul>
         {films.map((film) => {
-          // console.log("film MAP", film);
           return <li>{film.title}</li>;
         })}
       </ul>
