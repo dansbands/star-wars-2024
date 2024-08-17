@@ -9,8 +9,9 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { emptyFilm } from "../util/helpers";
+import { emptyFilm, formatDate, numerals, posters } from "../util/helpers";
 import { CharacterFilms } from "./film-list";
+import { Box } from "@mui/material";
 
 type Props = {
   currentFilm: CharacterFilms;
@@ -27,25 +28,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function Modal({ currentFilm, setCurrentFilm }: Props) {
-  const handleClickOpen = () => {
-    setCurrentFilm(currentFilm);
-  };
   const handleClose = () => {
     setCurrentFilm(emptyFilm);
   };
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={currentFilm.episode_id > 0}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Modal title
+          <div>{`Episode ${numerals[currentFilm.episode_id - 1]}: ${
+            currentFilm.title
+          }`}</div>
+          <span>Release Date: {formatDate(currentFilm.release_date)}</span>
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -60,25 +58,30 @@ export default function Modal({ currentFilm, setCurrentFilm }: Props) {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
+          <Box
+            component="img"
+            sx={{
+              float: "left",
+              width: 200,
+              marginRight: 2,
+              marginBottom: 1,
+            }}
+            alt="Film Poster"
+            src={posters[currentFilm.episode_id - 1]}
+          />
+          <Typography variant={"body2"} gutterBottom>
+            {currentFilm.opening_crawl}
+          </Typography>{" "}
+          <Typography variant={"body1"} gutterBottom>
+            Director: {currentFilm.director}
           </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
+          <Typography variant={"body1"} gutterBottom>
+            Producer: {currentFilm.producer}
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
-            Save changes
+            Close
           </Button>
         </DialogActions>
       </BootstrapDialog>

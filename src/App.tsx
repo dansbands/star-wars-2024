@@ -48,8 +48,7 @@ const App: React.FC = () => {
   let filmArr: CharacterFilms[] = [];
 
   useEffect(() => {
-    console.log("characterData.films", characterData.films.length);
-    if (characterData.films[0] !== "") {
+    if (characterData?.films && characterData.films[0] !== "") {
       setLoadingState("loading");
       characterData?.films.map((film) => {
         fetch(film)

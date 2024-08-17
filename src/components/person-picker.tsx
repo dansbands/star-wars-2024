@@ -14,7 +14,7 @@ export type PersonPickerProps = {
     }>
   >;
   setDropdownValue: Dispatch<SetStateAction<string>>;
-  setError: Dispatch<SetStateAction<boolean>>;
+  setError: Dispatch<SetStateAction<string>>;
 };
 
 const PersonPicker = ({
@@ -32,13 +32,15 @@ const PersonPicker = ({
   const fetchCharacter = () => {
     if (currentCharacter?.url) {
       fetch(currentCharacter.url)
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === 404) {
+            setError("error");
+          }
+          return res.json();
+        })
         .then((json) => setCharacterData(json))
-        .catch((err) => setError(err));
-    } 
-    // else {
-    //   setError('error')
-    // }
+        .catch((err) => setError("error"));
+    }
   };
 
   const handleChange = (event: SelectChangeEvent) => {

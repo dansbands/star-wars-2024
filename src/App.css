@@ -122,3 +122,10 @@
   margin-top: 20px;
   padding-top: 10px;
 }
+
+#customized-dialog-title {
+  span {
+    font-size: 16px;
+    color: #2c282c;
+  }
+}
