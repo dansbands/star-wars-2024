@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/star-wars-2024/static/css/main.90b5cf13.css",
+    "main.css": "/star-wars-2024/static/css/main.d870bb8f.css",
     "main.js": "/star-wars-2024/static/js/main.caacca3b.js",
     "static/js/453.6aedcae7.chunk.js": "/star-wars-2024/static/js/453.6aedcae7.chunk.js",
     "static/media/bb8.gif": "/star-wars-2024/static/media/bb8.28f57b3625e89a164055.gif",
@@ -15,12 +15,12 @@
     "static/media/7.jpg": "/star-wars-2024/static/media/7.7b0367c5ce8f85918d77.jpg",
     "static/media/6.jpg": "/star-wars-2024/static/media/6.c73801cc3237ab8a4239.jpg",
     "index.html": "/star-wars-2024/index.html",
-    "main.90b5cf13.css.map": "/star-wars-2024/static/css/main.90b5cf13.css.map",
+    "main.d870bb8f.css.map": "/star-wars-2024/static/css/main.d870bb8f.css.map",
     "main.caacca3b.js.map": "/star-wars-2024/static/js/main.caacca3b.js.map",
     "453.6aedcae7.chunk.js.map": "/star-wars-2024/static/js/453.6aedcae7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90b5cf13.css",
+    "static/css/main.d870bb8f.css",
     "static/js/main.caacca3b.js"
   ]
 }
