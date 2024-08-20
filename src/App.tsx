@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import "./App.css";
 import Header from "./components/header";
 import { CharacterFilms } from "./components/film-list";
@@ -23,13 +23,15 @@ const App = () => {
     emptyFilm,
   ]);
 
-  let filmArr: CharacterFilms[] = [];
+  const currentCharacter = useMemo(
+    () =>
+      characterChoices.find((choice) => choice.name === dropdownValue) || {
+        url: "",
+      },
+    [dropdownValue]
+  );
 
-  const currentCharacter = characterChoices.find(
-    (choice) => choice.name === dropdownValue
-  ) || { url: "" };
-
-  const fetchCharacter = () => {
+  const fetchCharacter = useCallback(() => {
     if (currentCharacter?.url) {
       fetch(currentCharacter.url)
         .then((res) => {
@@ -39,9 +41,9 @@ const App = () => {
           return res.json();
         })
         .then((json) => setCharacterData(json))
-        .catch((err) => setLoadingState("error"));
+        .catch((_err) => setLoadingState("error"));
     }
-  };
+  }, [currentCharacter]);
 
   const handleDropdownChange = (event: SelectChangeEvent<string>) => {
     setDropdownValue(event.target.value);
@@ -49,11 +51,12 @@ const App = () => {
 
   useEffect(() => {
     fetchCharacter();
-  }, [dropdownValue]);
+  }, [dropdownValue, fetchCharacter]);
 
   useEffect(() => {
     if (characterData?.films?.length > 0) {
       setLoadingState("loading");
+      let filmArr: CharacterFilms[] = [];
       characterData?.films.map((film) => {
         return fetch(film)
           .then((res) => res.json())
