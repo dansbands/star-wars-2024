@@ -8,12 +8,12 @@ import Idle from "./views/idle";
 import Error from "./views/error";
 import Films from "./views/films";
 import { emptyCharacter, emptyFilm } from "./util/helpers";
-import { CharacterData } from "./util/types";
+import { CharacterData, LoadingStates } from "./util/types";
 
 const { characters: characterChoices } = characters;
 
 const App = () => {
-  const [loadingState, setLoadingState] = useState("idle"); // idle | loading | success | error
+  const [loadingState, setLoadingState] = useState <LoadingStates>("idle");
   const [listMode, setListMode] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
   const [characterData, setCharacterData] =

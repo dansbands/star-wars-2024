@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import { CharacterFilms } from "../components/film-list";
 
+export type LoadingStates = "idle" | "loading" | "success" | "error";
+
 export type CharacterData = {
   name: string;
   birth_year: string;
