@@ -33,6 +33,12 @@ export const emptyFilm = {
   url: "",
 };
 
+export const emptyCharacter = {
+  name: "",
+  birth_year: "",
+  films: [""],
+};
+
 export const numerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 
 export const formatDate = (date: string) => {

@@ -8,41 +8,18 @@ import Loading from "./views/loading";
 import Idle from "./views/idle";
 import Error from "./views/error";
 import Films from "./views/films";
+import { emptyCharacter, emptyFilm } from "./util/helpers";
+import { CharacterData } from "./util/types";
 
 const { characters: characterChoices } = characters;
-
-export type CharacterData = {
-  name: string;
-  birth_year: string;
-  films: string[];
-};
 
 const App: React.FC = () => {
   const [loadingState, setLoadingState] = useState("idle"); // idle | loading | success | error
   const [listMode, setListMode] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
-  const [characterData, setCharacterData] = useState<CharacterData>({
-    name: "",
-    birth_year: "",
-    films: [""],
-  });
+  const [characterData, setCharacterData] = useState<CharacterData>(emptyCharacter);
   const [characterFilms, setCharacterFilms] = useState<CharacterFilms[]>([
-    {
-      title: "",
-      episode_id: 0,
-      opening_crawl: "",
-      director: "",
-      producer: "",
-      release_date: "",
-      characters: [],
-      planets: [],
-      starships: [],
-      vehicles: [],
-      species: [],
-      created: "",
-      edited: "",
-      url: "",
-    },
+   emptyFilm
   ]);
 
   let filmArr: CharacterFilms[] = [];

@@ -1,11 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import GridViewIcon from "@mui/icons-material/GridView";
-
-export type ModeControlProps = {
-  listMode: boolean;
-  toggleList: Dispatch<SetStateAction<boolean>>;
-};
+import { ModeControlProps } from "../util/types";
 
 const ModeControls = ({ listMode, toggleList }: ModeControlProps) => {
   return (

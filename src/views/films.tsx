@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import FilmList, { CharacterFilms } from "../components/film-list";
-import { CharacterData } from "../App";
 import FilmGrid from "../components/film-grid";
 import Modal from "../components/modal";
 import { emptyFilm } from "../util/helpers";
+import { FilmsProps } from "../util/types";
 
-type Props = {
-  listMode: boolean;
-  characterData: CharacterData;
-  characterFilms: CharacterFilms[];
-};
-
-const Films = ({ listMode, characterData, characterFilms }: Props) => {
+const Films = ({ listMode, characterData, characterFilms }: FilmsProps) => {
   const [currentFilm, setCurrentFilm] = useState<CharacterFilms>(emptyFilm);
 
   const description = `Films that ${characterData.name} appears in:`;

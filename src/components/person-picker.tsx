@@ -1,22 +1,8 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { InputLabel } from "@mui/material";
-
-export type PersonPickerProps = {
-  characterChoices?: { name: string; url: string }[];
-  dropdownValue: string;
-  characterData: { name: string; birth_year: string; films: string[] };
-  setCharacterData: Dispatch<
-    SetStateAction<{
-      name: string;
-      birth_year: string;
-      films: string[];
-    }>
-  >;
-  setDropdownValue: Dispatch<SetStateAction<string>>;
-  setError: Dispatch<SetStateAction<string>>;
-};
+import { PersonPickerProps } from "../util/types";
 
 const PersonPicker = ({
   characterChoices = [],

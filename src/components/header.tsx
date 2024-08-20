@@ -1,9 +1,8 @@
 import React from "react";
-import PersonPicker, { PersonPickerProps } from "./person-picker";
-import ModeControls, { ModeControlProps } from "./mode-controls";
+import PersonPicker from "./person-picker";
+import ModeControls from "./mode-controls";
 import logo from "../../src/img/logo.jpg";
-
-export type HeaderProps = ModeControlProps & PersonPickerProps;
+import { HeaderProps } from "../util/types";
 
 const Header = ({
   listMode,
