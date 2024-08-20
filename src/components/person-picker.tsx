@@ -1,14 +1,19 @@
 import React from "react";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { InputLabel } from "@mui/material";
+import { InputLabel, SelectChangeEvent } from "@mui/material";
 import { PersonPickerProps } from "../util/types";
 
 const PersonPicker = ({
   characterChoices = [],
   dropdownValue,
-  handleDropdownChange,
+  setDropdownValue,
 }: PersonPickerProps) => {
+  
+  const handleDropdownChange = (event: SelectChangeEvent<string>) => {
+    setDropdownValue(event.target.value);
+  };
+
   return (
     <div className="select-container">
       <InputLabel className="hidden" id="label">

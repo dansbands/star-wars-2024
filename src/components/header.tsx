@@ -10,7 +10,6 @@ const Header = ({
   characterChoices,
   dropdownValue,
   characterData,
-  handleDropdownChange,
   setCharacterData,
   setDropdownValue,
   setError,
@@ -22,7 +21,6 @@ const Header = ({
         characterChoices={characterChoices}
         dropdownValue={dropdownValue}
         characterData={characterData}
-        handleDropdownChange={handleDropdownChange}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
         setError={setError}

@@ -9,7 +9,6 @@ import Error from "./views/error";
 import Films from "./views/films";
 import { emptyCharacter, emptyFilm } from "./util/helpers";
 import { CharacterData } from "./util/types";
-import { SelectChangeEvent } from "@mui/material";
 
 const { characters: characterChoices } = characters;
 
@@ -45,10 +44,6 @@ const App = () => {
     }
   }, [currentCharacter]);
 
-  const handleDropdownChange = (event: SelectChangeEvent<string>) => {
-    setDropdownValue(event.target.value);
-  };
-
   useEffect(() => {
     fetchCharacter();
   }, [dropdownValue, fetchCharacter]);
@@ -80,7 +75,6 @@ const App = () => {
         characterData={characterData}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
-        handleDropdownChange={handleDropdownChange}
         setError={() => setLoadingState("error")}
       />
       <main>

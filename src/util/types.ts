@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 import { CharacterFilms } from "../components/film-list";
-import { SelectChangeEvent } from "@mui/material";
 
 export type CharacterData = {
   name: string;
@@ -19,10 +18,6 @@ export type PersonPickerProps = {
       films: string[];
     }>
   >;
-  handleDropdownChange: (
-    event: SelectChangeEvent<string>,
-    child: React.ReactNode
-  ) => void;
   setDropdownValue: Dispatch<SetStateAction<string>>;
   setError: Dispatch<SetStateAction<string>>;
 };
