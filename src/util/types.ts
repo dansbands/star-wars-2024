@@ -35,4 +35,5 @@ export type ModeControlProps = {
   toggleList: Dispatch<SetStateAction<boolean>>;
 };
 
-export type HeaderProps = ModeControlProps & PersonPickerProps;
+export type HeaderProps = ModeControlProps &
+  PersonPickerProps & { loadingState: LoadingStates };

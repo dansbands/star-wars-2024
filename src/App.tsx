@@ -73,6 +73,7 @@ const App = () => {
         characterChoices={characterChoices}
         dropdownValue={dropdownValue}
         characterData={characterData}
+        loadingState={loadingState}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
         setError={() => setLoadingState("error")}

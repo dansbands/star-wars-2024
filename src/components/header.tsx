@@ -10,6 +10,7 @@ const Header = ({
   characterChoices,
   dropdownValue,
   characterData,
+  loadingState,
   setCharacterData,
   setDropdownValue,
   setError,
@@ -25,7 +26,9 @@ const Header = ({
         setDropdownValue={setDropdownValue}
         setError={setError}
       />
-      <ModeControls listMode={listMode} toggleList={toggleList} />
+      {loadingState === "success" && (
+        <ModeControls listMode={listMode} toggleList={toggleList} />
+      )}
     </header>
   );
 };
