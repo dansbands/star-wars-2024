@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ChangeEvent } from "react";
 import "./App.css";
-
 import Header from "./components/header";
 import { CharacterFilms } from "./components/film-list";
 import characters from "./util/characters.json";
@@ -10,6 +9,7 @@ import Error from "./views/error";
 import Films from "./views/films";
 import { emptyCharacter, emptyFilm } from "./util/helpers";
 import { CharacterData } from "./util/types";
+import { SelectChangeEvent } from "@mui/material";
 
 const { characters: characterChoices } = characters;
 
@@ -25,6 +25,32 @@ const App = () => {
 
   let filmArr: CharacterFilms[] = [];
 
+  const currentCharacter = characterChoices.find(
+    (choice) => choice.name === dropdownValue
+  ) || { url: "" };
+
+  const fetchCharacter = () => {
+    if (currentCharacter?.url) {
+      fetch(currentCharacter.url)
+        .then((res) => {
+          if (res.status === 404) {
+            setLoadingState("error");
+          }
+          return res.json();
+        })
+        .then((json) => setCharacterData(json))
+        .catch((err) => setLoadingState("error"));
+    }
+  };
+
+  const handleDropdownChange = (event: SelectChangeEvent<string>) => {
+    setDropdownValue(event.target.value);
+  };
+
+  useEffect(() => {
+    fetchCharacter();
+  }, [dropdownValue]);
+
   useEffect(() => {
     if (characterData?.films?.length > 0) {
       setLoadingState("loading");
@@ -39,7 +65,7 @@ const App = () => {
           .catch((err) => setLoadingState("error"));
       });
     }
-  }, [characterData, dropdownValue]);
+  }, [characterData]);
 
   return (
     <div className="App">
@@ -51,6 +77,7 @@ const App = () => {
         characterData={characterData}
         setCharacterData={setCharacterData}
         setDropdownValue={setDropdownValue}
+        handleDropdownChange={handleDropdownChange}
         setError={() => setLoadingState("error")}
       />
       <main>
