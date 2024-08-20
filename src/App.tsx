@@ -13,22 +13,23 @@ import { CharacterData } from "./util/types";
 
 const { characters: characterChoices } = characters;
 
-const App: React.FC = () => {
+const App = () => {
   const [loadingState, setLoadingState] = useState("idle"); // idle | loading | success | error
   const [listMode, setListMode] = useState(false);
   const [dropdownValue, setDropdownValue] = useState("");
-  const [characterData, setCharacterData] = useState<CharacterData>(emptyCharacter);
+  const [characterData, setCharacterData] =
+    useState<CharacterData>(emptyCharacter);
   const [characterFilms, setCharacterFilms] = useState<CharacterFilms[]>([
-   emptyFilm
+    emptyFilm,
   ]);
 
   let filmArr: CharacterFilms[] = [];
 
   useEffect(() => {
-    if (characterData?.films && characterData.films[0] !== "") {
+    if (characterData?.films?.length > 0) {
       setLoadingState("loading");
       characterData?.films.map((film) => {
-        fetch(film)
+        return fetch(film)
           .then((res) => res.json())
           .then((data) => {
             filmArr = [...filmArr, data];

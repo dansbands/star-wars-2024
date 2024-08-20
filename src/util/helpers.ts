@@ -36,7 +36,7 @@ export const emptyFilm = {
 export const emptyCharacter = {
   name: "",
   birth_year: "",
-  films: [""],
+  films: [],
 };
 
 export const numerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
